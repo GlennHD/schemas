@@ -1,103 +1,103 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "id": "https://raw.githubusercontent.com/GlennHD/schemas/main/sigma-schema.json",
-    "type": "object",
-    "title": "Sigma rule Yaml schema validator",
-    "description": "JSON Schema validator for Sigma .sigma.yml and .sigma.yaml files",
-    "required": [
-        "title",
-        "id",
-        "status",
-        "description",
-        "references",
-        "author",
-        "date",
-        "tags",
-        "logsource",
-        "detection",
-        "falsepositives",
-        "level"
-    ],
-    "additionalProperties": true,
-    "properties": {
-        "title": {
-            "type": "string",
-            "default": "Detects port scanning across commonly known ports."
-            "minLength": "1",
-            "maxLength": "256"
-        },
-        "id": {
-            "type": "string",
-            "format": "uuid"
-        },
-        "status": {
-            "type": "string",
-            "enum": ["stable", "testing", "experimental"]
-        },
-        "description": {
-            "type": "string"
-        },
-        "references": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            }
-        },
-        "author": {
-            "type": "string"
-        },
-        "date": {
-            "type": "string",
-            "format": "date"
-        },
-        "tags": {
-            "type": "array",
-            "default": ["TA0001", "T1234", "CVE-12345"],
-            "items": {
-                "type": "string"
-            }
-        },
-        "logsource": {
-            "title": "Logsource",
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "category": {
-                    "type": "string",
-                    "required": true
-                },
-                "product": {
-                    "type": "string",
-                    "required": true
-                },
-                "service": {
-                    "type": "string",
-                    "required": false
-                },
-                "definition": {
-                    "type": "string",
-                    "required": false
-                }
-            },
-            "required": [
-                "category",
-                "product"
-            ]
-        },
-        "detection": {
-            "title": "Detection",
-            "type": "object",
-            "additionalProperties": true
-        },
-        "falsepositives": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            }
-        },
-        "level": {
-            "type": "string",
-            "enum": ["low", "medium", "high", "critical"]
-        }
-    }
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"id": "https://raw.githubusercontent.com/GlennHD/schemas/main/sigma-schema.json",
+	"type": "object",
+	"title": "Sigma rule Yaml schema validator",
+	"description": "JSON Schema validator for Sigma .sigma.yml and .sigma.yaml files",
+	"required": [
+		"title",
+		"id",
+		"status",
+		"description",
+		"references",
+		"author",
+		"date",
+		"tags",
+		"logsource",
+		"detection",
+		"falsepositives",
+		"level"
+	],
+	"additionalProperties": true,
+	"properties": {
+		"title": {
+			"type": "string",
+			"default": "Detects port scanning across commonly known ports.",
+			"minLength": "1",
+			"maxLength": "256"
+		},
+		"id": {
+			"type": "string",
+			"format": "uuid"
+		},
+		"status": {
+			"type": "string",
+			"enum": ["stable", "testing", "experimental"]
+		},
+		"description": {
+			"type": "string"
+		},
+		"references": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"author": {
+			"type": "string"
+		},
+		"date": {
+			"type": "string",
+			"format": "date"
+		},
+		"tags": {
+			"type": "array",
+			"default": ["TA0001", "T1234", "CVE-12345"],
+			"items": {
+				"type": "string"
+			}
+		},
+		"logsource": {
+			"title": "Logsource",
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"category": {
+					"type": "string",
+					"required": true
+				},
+				"product": {
+					"type": "string",
+					"required": true
+				},
+				"service": {
+					"type": "string",
+					"required": false
+				},
+				"definition": {
+					"type": "string",
+					"required": false
+				}
+			},
+			"required": [
+				"category",
+				"product"
+			]
+		},
+		"detection": {
+			"title": "Detection",
+			"type": "object",
+			"additionalProperties": true
+		},
+		"falsepositives": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"level": {
+			"type": "string",
+			"enum": ["low", "medium", "high", "critical"]
+		}
+	}
 }
