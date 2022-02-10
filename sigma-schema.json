@@ -4,6 +4,7 @@
     "description": "JSON Schema validator for Sigma .sigma.yml and .sigma.yaml files",
     "type": "object",
     "$ref": "#/definitions/base",
+    "additionalProperties": false,
     "definitions": {
         "base": {
             "type": "object",
