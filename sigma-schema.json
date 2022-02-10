@@ -140,5 +140,15 @@
             ],
             "title": "Logsource"
         }
+    },
+    "properties": {
+        "line_endings": {
+          "description": "This rule ensures your project uses only windows or unix line endings. [default level: ignore]",
+          "allOf": [
+            {
+              "$ref": "#/definitions/base"
+            }
+          ]
+        }
     }
 }
