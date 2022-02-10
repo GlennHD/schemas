@@ -3,81 +3,73 @@
     "title": "Sigma rule Yaml schema validator",
     "description": "JSON Schema validator for Sigma .sigma.yml and .sigma.yaml files",
     "type": "object",
-    "$ref": "#/definitions/base",
     "required": ["id", "title"],
     "additionalProperties": false,
-    "definitions": {
-        "base": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "title": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string",
-                    "format": "uuid"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "references": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "format": "uri",
-                        "qt-uri-protocols": [
-                            "https"
-                        ]
-                    }
-                },
-                "author": {
-                    "type": "string"
-                },
-                "date": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "logsource": {
-                    "$ref": "#/definitions/Logsource"
-                },
-                "detection": {
-                    "$ref": "#/definitions/Detection"
-                },
-                "falsepositives": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "level": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "author",
-                "date",
-                "description",
-                "detection",
-                "falsepositives",
-                "id",
-                "level",
-                "logsource",
-                "references",
-                "status",
-                "tags",
-                "title"
-            ],
-            "title": "base"
+    "properties": {
+        "title": {
+            "type": "string"
         },
+        "id": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "status": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "references": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri",
+                "qt-uri-protocols": [
+                    "https"
+                ]
+            }
+        },
+        "author": {
+            "type": "string"
+        },
+        "date": {
+            "type": "string"
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "logsource": {
+            "$ref": "#/definitions/Logsource"
+        },
+        "detection": {
+            "$ref": "#/definitions/Detection"
+        },
+        "falsepositives": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "level": {
+            "type": "string"
+        }
+    "required": [
+        "author",
+        "date",
+        "description",
+        "detection",
+        "falsepositives",
+        "id",
+        "level",
+        "logsource",
+        "references",
+        "status",
+        "tags",
+        "title"
+    ],
         "Detection": {
             "type": "object",
             "additionalProperties": false,
