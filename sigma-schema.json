@@ -1,128 +1,150 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema",
-	"id": "https://raw.githubusercontent.com/GlennHD/schemas/main/sigma-schema.json",
-	"type": "object",
-	"title": "Sigma rule Yaml schema validator",
-	"description": "JSON Schema validator for Sigma .sigma.yml and .sigma.yaml files",
-	"required": [
-		"title",
-		"id",
-		"status",
-		"description",
-		"references",
-		"author",
-		"date",
-		"tags",
-		"logsource",
-		"detection",
-		"falsepositives",
-		"level"
-	],
-	"additionalProperties": true,
-	"properties": {
-		"title": {
-			"type": "string",
-			"default": "Web App URI Abuse",
-			"minLength": 1,
-			"maxLength": 256
-		},
-		"id": {
-			"type": "string",
-			"format": "uuid",
-			"default": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
-		},
-		"status": {
-			"type": "string",
-			"enum": ["stable", "testing", "experimental"],
-			"default": "experimental"
-		},
-		"description": {
-			"type": "string",
-			"default": "Detects common web app scanning activity using POST requests "
-		},
-		"references": {
-			"type": "array",
-			"items": {
-				"type": "string",
-				"examples": [ "https://www.website.com/sid12345", "sid12345", "Ticket12345" ]
-			}
-		},
-		"author": {
-			"type": "string",
-			"default": "John Doe"
-		},
-		"date": {
-			"type": "string",
-			"pattern": "^\\d{4}\/(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])$",
-			"default": "2022/05/30"
-		},
-		"tags": {
-			"type": "array",
-			"title": "Tags",
-			"default": [],
-			"items": {
-				"type": "string",
-				"examples": ["attack.ta0001", "attack.t1234.001", "cve-12345"]
-			}
-		},
-		"logsource": {
-			"title": "Logsource",
-			"type": "object",
-			"additionalProperties": false,
-			"properties": {
-				"category": {
-					"type": "string",
-					"default": "proxy"
-				},
-				"product": {
-					"type": "string",
-					"default": "Blue Coat Web App Proxy"
-				},
-				"service": {
-					"type": "string"
-				},
-				"definition": {
-					"type": "string"
-				}
-			},
-			"required": [
-				"category",
-				"product"
-			]
-		},
-		"detection": {
-			"title": "Detection",
-			"type": "object",
-			"additionalProperties": true,
-			"default": {
-				"selection": {
-					"cs-uri-query": [
-						"/admin/get.php",
-						"/news.php",
-						"login/process.php"
-					],
-					"cs-method": "POST"
-				},
-				"filter1": {
-					"src_ip": [ "10.0.99.251", "10.0.99.252" ] 
-				},
-				"filter2": {
-					"cs-domain": "honeypot.local"
-				},
-				"condition": "selection and not 1 of filter*"
-			}
-		},
-		"falsepositives": {
-			"type": "array",
-			"items": {
-				"type": "string",
-				"examples": [ "Valid POSTS to the web server." ]
-			}
-		},
-		"level": {
-			"type": "string",
-			"enum": ["low", "medium", "high", "critical"],
-			"default": "medium"
-		}
-	}
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "id": "https://raw.githubusercontent.com/GlennHD/schemas/main/sigma-schema.json",
+  "type": "object",
+  "title": "Sigma rule Yaml schema validator",
+  "description": "JSON Schema validator for Sigma .sigma.yml and .sigma.yaml files",
+  "required": [
+    "title",
+    "id",
+    "status",
+    "description",
+    "references",
+    "author",
+    "date",
+    "tags",
+    "logsource",
+    "detection",
+    "falsepositives",
+    "level"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Web App URI Abuse",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "default": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "stable",
+        "testing",
+        "experimental"
+      ],
+      "default": "experimental"
+    },
+    "description": {
+      "type": "string",
+      "default": "Detects common web app scanning activity using POST requests "
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "examples": [
+          "https://www.website.com/sid12345",
+          "sid12345",
+          "Ticket12345"
+        ]
+      }
+    },
+    "author": {
+      "type": "string",
+      "default": "John Doe"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}/(0?[1-9]|1[012])/(0?[1-9]|[12][0-9]|3[01])$",
+      "default": "2022/05/30"
+    },
+    "tags": {
+      "type": "array",
+      "title": "Tags",
+      "default": [],
+      "items": {
+        "type": "string",
+        "examples": [
+          "attack.ta0001",
+          "attack.t1234.001",
+          "cve-12345"
+        ]
+      }
+    },
+    "logsource": {
+      "title": "Logsource",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "type": "string",
+          "default": "proxy"
+        },
+        "product": {
+          "type": "string",
+          "default": "Blue Coat Web App Proxy"
+        },
+        "service": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "category",
+        "product"
+      ]
+    },
+    "detection": {
+      "title": "Detection",
+      "type": "object",
+      "additionalProperties": true,
+      "default": {
+        "selection": {
+          "cs-uri-query": [
+            "/admin/get.php",
+            "/news.php",
+            "login/process.php"
+          ],
+          "cs-method": "POST"
+        },
+        "filter1": {
+          "src_ip": [
+            "10.0.99.251",
+            "10.0.99.252"
+          ]
+        },
+        "filter2": {
+          "cs-domain": "honeypot.local"
+        },
+        "condition": "selection and not 1 of filter*"
+      }
+    },
+    "falsepositives": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "examples": [
+          "Valid POSTS to the web server."
+        ]
+      }
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "medium"
+    }
+  }
 }
