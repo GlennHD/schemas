@@ -3,7 +3,20 @@
     "title": "Sigma rule Yaml schema validator",
     "description": "JSON Schema validator for Sigma .sigma.yml and .sigma.yaml files",
     "type": "object",
-    "required": ["id", "title"],
+    "required": [
+        "author",
+        "date",
+        "description",
+        "detection",
+        "falsepositives",
+        "id",
+        "level",
+        "logsource",
+        "references",
+        "status",
+        "tags",
+        "title"
+    ],
     "additionalProperties": false,
     "properties": {
         "title": {
@@ -56,20 +69,6 @@
         "level": {
             "type": "string"
         }
-    "required": [
-        "author",
-        "date",
-        "description",
-        "detection",
-        "falsepositives",
-        "id",
-        "level",
-        "logsource",
-        "references",
-        "status",
-        "tags",
-        "title"
-    ],
         "Detection": {
             "type": "object",
             "additionalProperties": false,
