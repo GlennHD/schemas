@@ -68,57 +68,12 @@
         },
         "level": {
             "type": "string"
-        }
+        },
         "Detection": {
             "type": "object",
             "additionalProperties": false,
-            "properties": {
-                "selection1": {
-                    "$ref": "#/definitions/Selection1"
-                },
-                "selection2": {
-                    "$ref": "#/definitions/Selection2"
-                },
-                "condition": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "condition",
-                "selection1",
-                "selection2"
-            ],
             "title": "Detection"
-        },
-        "Selection1": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "Image|contains": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "Image|contains"
-            ],
-            "title": "Selection1"
-        },
-        "Selection2": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "CommandLine|contains|all": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "required": [
-                "CommandLine|contains|all"
-            ],
-            "title": "Selection2"
-        },
+        }
         "Logsource": {
             "type": "object",
             "additionalProperties": false,
