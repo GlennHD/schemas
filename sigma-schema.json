@@ -1,26 +1,28 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "id": "https://raw.githubusercontent.com/GlennHD/schemas/main/sigma-schema.json",
+    "type": "object",
     "title": "Sigma rule Yaml schema validator",
     "description": "JSON Schema validator for Sigma .sigma.yml and .sigma.yaml files",
-    "type": "object",
     "required": [
+        "title",
+        "id",
+        "status",
+        "description",
+        "references",
         "author",
         "date",
-        "description",
+        "tags",
+        "logsource",
         "detection",
         "falsepositives",
-        "id",
-        "level",
-        "logsource",
-        "references",
-        "status",
-        "tags",
-        "title"
+        "level"
     ],
     "additionalProperties": false,
     "properties": {
         "title": {
-            "type": "string"
+            "type": "string",
+            "default": "Detects Port Scanning"
         },
         "id": {
             "type": "string",
@@ -50,6 +52,7 @@
         },
         "tags": {
             "type": "array",
+            "default": ["TA0001", "T1234", "CVE-12345"],
             "items": {
                 "type": "string"
             }
