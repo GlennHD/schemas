@@ -48,7 +48,7 @@
 		},
 		"date": {
 			"type": "string",
-			"format": "date"
+			"pattern": "^\\d{4}\/(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])$"
 		},
 		"tags": {
 			"type": "array",
@@ -87,7 +87,12 @@
 		"detection": {
 			"title": "Detection",
 			"type": "object",
-			"additionalProperties": true
+			"additionalProperties": true,
+			"default": {
+				"selection": "",
+				"filter": "",
+				"condition": "selection"
+			}
 		},
 		"falsepositives": {
 			"type": "array",
