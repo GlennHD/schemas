@@ -23,8 +23,8 @@
 		"title": {
 			"type": "string",
 			"default": "Detects port scanning across commonly known ports",
-			"minLength": "1",
-			"maxLength": "256"
+			"minLength": 1,
+			"maxLength": 256
 		},
 		"id": {
 			"type": "string",
