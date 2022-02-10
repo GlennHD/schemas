@@ -55,26 +55,7 @@
             }
         },
         "logsource": {
-            "$ref": "#/definitions/Logsource"
-        },
-        "detection": {
-            "$ref": "#/definitions/Detection"
-        },
-        "falsepositives": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            }
-        },
-        "level": {
-            "type": "string"
-        },
-        "Detection": {
-            "type": "object",
-            "additionalProperties": false,
-            "title": "Detection"
-        },
-        "Logsource": {
+            "title": "Logsource"
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -88,8 +69,21 @@
             "required": [
                 "category",
                 "product"
-            ],
-            "title": "Logsource"
+            ]
+        },
+        "detection": {
+            "type": "object",
+            "additionalProperties": false,
+            "title": "Detection"
+        },
+        "falsepositives": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "level": {
+            "type": "string"
         }
     }
 }
