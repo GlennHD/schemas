@@ -18,18 +18,21 @@
         "falsepositives",
         "level"
     ],
-    "additionalProperties": false,
+    "additionalProperties": true,
     "properties": {
         "title": {
             "type": "string",
-            "default": "Detects Port Scanning"
+            "default": "Detects port scanning across commonly known ports."
+            "minLength": "1",
+            "maxLength": "256"
         },
         "id": {
             "type": "string",
             "format": "uuid"
         },
         "status": {
-            "type": "string"
+            "type": "string",
+            "enum": ["stable", "testing", "experimental"]
         },
         "description": {
             "type": "string"
@@ -37,18 +40,15 @@
         "references": {
             "type": "array",
             "items": {
-                "type": "string",
-                "format": "uri",
-                "qt-uri-protocols": [
-                    "https"
-                ]
+                "type": "string"
             }
         },
         "author": {
             "type": "string"
         },
         "date": {
-            "type": "string"
+            "type": "string",
+            "format": "date"
         },
         "tags": {
             "type": "array",
@@ -63,10 +63,20 @@
             "additionalProperties": false,
             "properties": {
                 "category": {
-                    "type": "string"
+                    "type": "string",
+                    "required": true
                 },
                 "product": {
-                    "type": "string"
+                    "type": "string",
+                    "required": true
+                },
+                "service": {
+                    "type": "string",
+                    "required": false
+                },
+                "definition": {
+                    "type": "string",
+                    "required": false
                 }
             },
             "required": [
@@ -86,7 +96,8 @@
             }
         },
         "level": {
-            "type": "string"
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"]
         }
     }
 }
