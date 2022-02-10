@@ -1,5 +1,8 @@
 {
-    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Sigma rule Yaml schema validator",
+    "description": "JSON Schema validator for Sigma .sigma.yml and .sigma.yaml files",
+    "type": "object",
     "$ref": "#/definitions/base",
     "definitions": {
         "base": {
