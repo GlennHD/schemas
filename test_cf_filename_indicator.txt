@@ -1,0 +1,1 @@
+this is just an OSP Zeek Intel framework test file
